@@ -23,27 +23,7 @@ new Vue({
 		}
 	},
 
-	ready: function() {
-		
-	},
-
 	methods: {
-		softUpdate: function() {
-	        var items2 = [];
-	        for (var i = 200 - 1; i >= 0; i--) {
-	            items2.push(this.items[i]);
-	        };
-
-	        for (var i = 50 - 1; i >= 0; i--) {
-	            items2.push(getItemData());
-	        };
-
-	        console.time('softUpdate')
-	        this.items = items2;
-            window.requestAnimationFrame(function() {
-                console.timeEnd('softUpdate')
-            });
-		},
 	    refreshList: function() {
 	        var items2 = [];
 	        for (var i = 250 - 1; i >= 0; i--) {

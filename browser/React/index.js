@@ -125,10 +125,7 @@ var TodoApp = React.createClass({displayName: "TodoApp",
     getInitialState: function() {
         return {items: items, text: ''};
     },
-    onChange: function(e) {
-        this.setState({text: e.target.value});
-    },
-    handleSubmit: function(e) {
+    onSubmit: function(e) {
         console.time('click')
         e.preventDefault();
         var nextItems = this.state.items.concat([getItemData()]);
@@ -150,31 +147,11 @@ var TodoApp = React.createClass({displayName: "TodoApp",
             });
         });
     },
-    softUpdate: function() {
-        var items2 = [];
-        for (var i = 125 - 1; i >= 0; i--) {
-            items2.push(this.state.items[i]);
-        };
-
-        for (var i = 125 - 1; i >= 0; i--) {
-            items2.push(getItemData());
-        };
-
-
-        console.time('softUpdate')
-        this.setState({items: items2}, function () {
-            window.requestAnimationFrame(function() {
-                console.timeEnd('softUpdate')
-            });
-        });
-        
-    },
     render: function() {
         return (
             React.createElement("div", null, 
-                React.createElement("button", {onClick: this.softUpdate}, "Обновить мягко"), 
                 React.createElement("button", {onClick: this.refreshList}, "Передёнуть список"), 
-                React.createElement("form", {onSubmit: this.handleSubmit}, 
+                React.createElement("form", {onSubmit: this.onSubmit}, 
                     React.createElement("button", null, 'Add #' + (this.state.items.length + 1))
                 ), 
                 React.createElement(TodoList, {items: this.state.items})

@@ -4,10 +4,9 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<link rel="stylesheet" type="text/css" href="../css.css">
+	<link rel="stylesheet" type="text/css" href="../../src/css.css">
 	<div id="app" style="width: 900px; margin: 0 auto;">
         <div>
-        	<button v-on="click: softUpdate">Обновить мягко</button>
         	<button v-on="click: refreshList">Передёнуть список</button>
             <form v-on="submit: onSubmit($event)">
                 <button>Add #{{items.length + 1}}</button>
@@ -116,7 +115,7 @@
 		</tr>
 	</script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.12.7/vue.js" type="text/javascript"></script>
-	<script src="../data.js" type="text/javascript"></script>
+	<script src="../../src/data.js" type="text/javascript"></script>
 	<script src="index.js" type="text/javascript"></script>
 </body>
 </html>
